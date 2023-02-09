@@ -14,6 +14,7 @@ def index(request):
 def leerQR(request):
     datos ={}
     data = qrLector()
+    btniInfo = 'Escanear Código QR'
     if data:
         listData = data.split('\n')
         datos = {
@@ -30,6 +31,6 @@ def leerQR(request):
         ing.email = listData[6].replace('EMAIL:',"")
         ing.industria_id = 1
         #ing.save()
-        btniInfo = 'Escanear Código QR'
+        
     
     return render(request, 'index.html',{'datos':datos,'btnInfo':btniInfo})
