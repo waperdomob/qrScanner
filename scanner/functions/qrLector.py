@@ -4,7 +4,7 @@ import numpy as np
 
 def qrLector():
     capture = cv2.VideoCapture(0)
-
+    data = None
     while(capture.isOpened()):
         ret, frame = capture.read()
         if (cv2.waitKey(1) == ord('s')):
