@@ -3,7 +3,8 @@ import cv2
 import numpy as np
 
 def qrLector():
-    capture = cv2.VideoCapture(0)
+    capture = cv2.VideoCapture(-1)
+    #capture = cv2.VideoCapture(0)
     data = None
     while(capture.isOpened()):
         ret, frame = capture.read()
