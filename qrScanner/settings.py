@@ -16,7 +16,7 @@ SECRET_KEY = 'django-insecure-m8=y3u#3+rum+l(@8+lbl_ha*04b=#*&nh+-6^ds94+cr#1ov#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -75,15 +75,15 @@ DATABASES = {
         'OPTIONS': {
             'sql_mode': 'traditional',
         },
-        #'NAME': 'trabajos',#para deploy
-        #'USER': 'wilmer',#para deploy
-        #'PASSWORD':'vcc2022*WP',#para deploy
+        'NAME': 'qrscanner',#para deploy
+        'USER': 'wilmer',#para deploy
+        'PASSWORD':'vcc2022*WP',#para deploy
         #para local
-        'NAME': 'qrscanner',
-        'USER':'root',
-        'PASSWORD':'',
-        'HOST':'localhost',
-        'PORT':'3306'
+        #'NAME': 'qrscanner',
+        #'USER':'root',
+        #'PASSWORD':'',
+        #'HOST':'localhost',
+        #'PORT':'3306'
     }
 }
 
