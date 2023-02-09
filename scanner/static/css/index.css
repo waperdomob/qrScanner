@@ -1,0 +1,23 @@
+#title {
+    text-align: center;
+    color: brown;
+    margin-top: 2rem;
+    align-content: center;
+    align-items: center;
+}
+
+#title2 {
+    text-align: center;
+    color: rgb(8, 23, 153);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.container {
+    display: flex;
+    flex-wrap: wrap
+}
+
+.botonEnvio {
+    color: rgb(30, 85, 85);
+    font-family: 'Courier New', Courier, monospace;
+}
