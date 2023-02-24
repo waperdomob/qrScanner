@@ -3,8 +3,8 @@ import cv2
 import numpy as np
 
 def qrLector():
-    capture = cv2.VideoCapture(44) #this is for deploy if not works try with 1000
-    #capture = cv2.VideoCapture(0) #this is for local envioronment
+    #capture = cv2.VideoCapture(1000) #this is for deploy if not works try with 44
+    capture = cv2.VideoCapture(0) #this is for local envioronment
     data = None
     while(capture.isOpened()):
         ret, frame = capture.read()

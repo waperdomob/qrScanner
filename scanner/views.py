@@ -2,7 +2,7 @@ from django.shortcuts import render
 from scanner.functions.qrLector import *
 import json
 from django.db import transaction
-
+from django.views.generic import CreateView
 from scanner.models import Ingreso
 # Create your views here.
 
@@ -32,5 +32,11 @@ def leerQR(request):
         ing.industria_id = 1
         #ing.save()
         
-    
     return render(request, 'index.html',{'datos':datos,'btnInfo':btniInfo})
+
+def generarQR(request):
+    return render(request, 'generatorQR.html')
+
+#class generarQR(CreateView):
+#    model = Ingreso
+#    template_name='generatorQR.html'

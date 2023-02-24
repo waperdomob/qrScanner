@@ -36,6 +36,9 @@ class Industria(models.Model):
     ciudad = models.CharField(max_length=45,null=True, blank=True)
     curso = models.ForeignKey(Cursos, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.industria
+
 class Ingreso(models.Model):
     fecha = models.DateField(auto_now_add=True)
     hora = models.TimeField(auto_now_add=True)
@@ -44,3 +47,6 @@ class Ingreso(models.Model):
     celular = models.CharField(max_length=100, unique=True)
     ciudad = models.CharField(max_length=45,null=True, blank=True)
     industria = models.ForeignKey(Industria, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return self.Nombres
