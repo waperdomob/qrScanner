@@ -1,0 +1,1 @@
+/home/wilmer/qrScanner/scanner/static/js/codigoQR.js

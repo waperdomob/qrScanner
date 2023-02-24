@@ -1,6 +1,6 @@
 #!/bin/bash
 
-NAME="QR_scanner"
+NAME="qrScanner"
 DJANGODIR=$(dirname $(cd `dirname $0` && pwd))
 SOCKFILE=/tmp/gunicorn-qrscanner.sock
 LOGDIR=${DJANGODIR}/logs/gunicorn.log
