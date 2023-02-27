@@ -21,3 +21,22 @@ def qrLector():
             break
     cv2.destroyAllWindows()
     return data
+
+
+    """
+        while(self.video.isOpened()):
+            ret, frame = self.video.read()
+            if (cv2.waitKey(1) == ord('s')):
+                break
+            qrDetector = cv2.QRCodeDetector()
+            data, bbox, rectifiedImage = qrDetector.detectAndDecode(frame)
+            if len(data)>0:
+                cv2.imshow('webCam', rectifiedImage)
+            else:
+                cv2.imshow('webCam', frame)
+            if (data):
+                self.video.release()
+                break
+        cv2.destroyAllWindows()
+        return data
+    """

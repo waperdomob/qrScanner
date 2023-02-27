@@ -1,20 +1,29 @@
 from django.shortcuts import render
-from scanner.functions.qrLector import *
-import json
 from django.db import transaction
 from django.views.generic import CreateView
+from django.http import StreamingHttpResponse
 from scanner.models import Ingreso
+
+from scanner.functions.qrLector import *
+from scanner.functions.camara import *
 # Create your views here.
+
 
 def index(request):
     btniInfo = 'Escanear Código QR'
     datos ={}
     return render(request,'index.html', {'datos':datos,'btnInfo':btniInfo})
 
+@gzip.gzip_page
 def leerQR(request):
     datos ={}
-    data = qrLector()
     btniInfo = 'Escanear Código QR'
+    try:
+        cam = VideoCamera()
+        return StreamingHttpResponse(gen(cam), content_type="multipart/x-mixed-replace;boundary=frame")
+    except:
+        pass
+    return render(request, 'index.html')    
     if data:
         listData = data.split('\n')
         datos = {
