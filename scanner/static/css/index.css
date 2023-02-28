@@ -17,6 +17,11 @@
     flex-wrap: wrap
 }
 
+#imgLogo{
+    display: flex;
+    justify-content: center;
+}
+
 .botonEnvio {
     color: rgb(30, 85, 85);
     font-family: 'Courier New', Courier, monospace;

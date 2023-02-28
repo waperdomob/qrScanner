@@ -5,7 +5,8 @@ from scanner import views
 
 urlpatterns = [
     path('',views.index, name='inicio'),
-    path('leerQR',views.leerQR, name='leerQR'),
+    re_path('^leerQR/$', views.leerQR, name='leerQR'),
+    #path('leerQR',views.leerQR, name='leerQR'),
     path('generarQR',views.generarQR, name='generarQR'),
 
 ]
