@@ -2,10 +2,9 @@ from django.shortcuts import render
 import cv2
 import numpy as np
 import base64
-from imageio import imread
 from django.http import  JsonResponse
-
 from scanner.models import Ingreso
+
 from scanner.functions.qrLector import *
 from scanner.functions.camara import *
 from scanner.functions.utils import *
@@ -24,9 +23,8 @@ def leerQR(request):
         imagen = request.POST.get('imagenQR')
         _ ,str_image = imagen.split('data:image/webp;base64,')
         decoded_data = base64.b64decode(str_image)        
-        np_data = np.fromstring(str_image.decode('base64'),np.uint8)
+        np_data = np.fromstring(decoded_data,np.uint8)
         img = cv2.imdecode(np_data,cv2.IMREAD_UNCHANGED)
-        print(img)
         qrDetector = cv2.QRCodeDetector()
         data, bbox, rectifiedImage = qrDetector.detectAndDecode(img)
         print(data)
@@ -46,7 +44,6 @@ def leerQR(request):
                 ing.ciudad = listData[4].replace('ADDR:',"")
                 ing.email = listData[6].replace('EMAIL:',"")
                 ing.industria_id = 1
-                print(datos)
                 #ing.save()           
             return JsonResponse({'msg':data})
         else:
