@@ -42,16 +42,7 @@
                 <img src="{% static 'img/qr-code.png' %}" alt="" width="100rem">
                 {{btnInfo}}
             </button>
-            <div class="display-cover" id="display_camera" hidden>       
-                <video autoplay ></video>
-                <canvas class="d-none"></canvas>
         
-                <div class="video-options">
-                    <select name="" id="" class="custom-select">
-                        <option value="">Select camera</option>
-                    </select>
-                </div>
-            </div>
             <form id="report_form">
                 {%  csrf_token  %}
                 <img class="screenshot-image d-none" alt="" id="imgQR" hidden>
@@ -61,7 +52,16 @@
         </div>
     </div>
    </div>
-   
+   <div class="display-cover" id="display_camera" hidden>       
+        <video autoplay ></video>
+        <canvas class="d-none"></canvas>
+
+        <div class="video-options">
+            <select name="" id="" class="custom-select">
+                <option value="">Select camera</option>
+            </select>
+        </div>
+    </div>
    
 
 {%  load static %}
