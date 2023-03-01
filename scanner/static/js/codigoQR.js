@@ -139,12 +139,14 @@ cameraOptions.onchange = () => {
                   handleAlerts('success',response.msg)
                 } else {
                   handleAlerts('warning',response.msg)
+                  setTimeout('document.location.reload()',3000);
                 }
                 
             },
             error: function(error) {
                 console.log(error)
-                handleAlerts('danger','ups... Algo salió mal')            
+                handleAlerts('danger','ups... Algo salió mal')
+                setTimeout('document.location.reload()',5000);          
             },
             processData: false,
             contentType: false,
