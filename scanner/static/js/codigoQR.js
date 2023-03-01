@@ -1,4 +1,5 @@
 feather.replace();
+
 const controls = document.querySelector('.controls');
 const cameraOptions = document.querySelector('.video-options>select');
 const video = document.querySelector('video');
@@ -81,11 +82,17 @@ play.onclick = () => {
 };
 
 const startStream = async (constraints) => {
-  const stream = await navigator.mediaDevices.getUserMedia(constraints);
-  handleStream(stream);
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia(constraints);
+    handleStream(stream);
+  } catch (error) {
+    errorMsgElement.innerHTML = `navigator.getUserMedia error:${error.toString()}`;
+  }
+  
 };
 
 const handleStream = (stream) => {
+  window.stream = stream;
   video.srcObject = stream;
   play.classList.add('d-none');
   screenshot.classList.remove('d-none');
