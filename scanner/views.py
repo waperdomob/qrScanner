@@ -1,5 +1,7 @@
 from django.shortcuts import render
-import os
+import cv2
+import numpy as np
+import base64
 from django.http import  JsonResponse
 from os import remove
 from scanner.models import Ingreso
@@ -20,10 +22,12 @@ def is_ajax(request):
 def leerQR(request):
     if is_ajax(request=request):
         imagen = request.POST.get('imagenQR')
-        get_report_image(imagen)
-        imgs =cv2.imread("imagenQR.png")
+        _ ,str_image = imagen.split('data:image/webp;base64,')
+        decoded_data = base64.b64decode(str_image)        
+        np_data = np.fromstring(decoded_data,np.uint8)
+        img = cv2.imdecode(np_data,cv2.IMREAD_UNCHANGED)
         qrDetector = cv2.QRCodeDetector()
-        data, bbox, rectifiedImage = qrDetector.detectAndDecode(imgs)
+        data, bbox, rectifiedImage = qrDetector.detectAndDecode(img)
         if len(data)>0:
             if (data):
                 listData = data.split('\n')
@@ -41,7 +45,6 @@ def leerQR(request):
                 ing.email = listData[6].replace('EMAIL:',"")
                 ing.industria_id = 1
                 print(datos)
-                remove("imagenQR.png")
                 #ing.save()           
             return JsonResponse({'msg':'QR guardado'})
         else:

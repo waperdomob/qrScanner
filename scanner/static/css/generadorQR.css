@@ -25,11 +25,11 @@ video {
 }
 
 .video-options {
-    position: relative;
+    position: absolute;
     justify-content: center;
     left: 100px;
-    top: 30px;
-    margin-bottom: 4rem;
+    top: 10px;
+    margin-bottom: 6rem;
 }
 
 .controls {
