@@ -49,9 +49,9 @@ def leerQR(request):
                 ing.email = listData[6].replace('EMAIL:',"")
                 ing.industria_id = 1
                 #ing.save()           
-            return JsonResponse({'msg':data})
+            return JsonResponse({'msg':"¡Registro QR con exito!"})
         else:
-            return JsonResponse({'msg':data})        
+            return JsonResponse({'msg':"¡Ups, ocurrio un problema. Intenta de nuevo!"})        
         
     return JsonResponse({})
 

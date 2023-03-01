@@ -135,12 +135,16 @@ cameraOptions.onchange = () => {
             data: formData,
 
             success: function(response){
-                console.log(response)
-                handleAlerts('success',response.msg)
+                if (response.msg === "¡Registro QR con exito!") {
+                  handleAlerts('success',response.msg)
+                } else {
+                  handleAlerts('warning',response.msg)
+                }
+                
             },
             error: function(error) {
                 console.log(error)
-                handleAlerts('danger',error)            
+                handleAlerts('danger','ups... Algo salió mal')            
             },
             processData: false,
             contentType: false,
