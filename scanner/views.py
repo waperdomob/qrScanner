@@ -4,6 +4,9 @@ import numpy as np
 import base64
 from django.http import  JsonResponse
 from scanner.models import Ingreso
+from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import csrf_exempt
+
 
 from scanner.functions.qrLector import *
 from scanner.functions.camara import *
@@ -18,6 +21,7 @@ def index(request):
 def is_ajax(request):
     return request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest'
 
+@method_decorator(csrf_exempt)
 def leerQR(request):
     if is_ajax(request=request):
         imagen = request.POST.get('imagenQR')

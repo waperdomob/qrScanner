@@ -140,7 +140,7 @@ cameraOptions.onchange = () => {
             },
             error: function(error) {
                 console.log(error)
-                handleAlerts('danger','ups... Algo salió mal')            
+                handleAlerts('danger',error)            
             },
             processData: false,
             contentType: false,
