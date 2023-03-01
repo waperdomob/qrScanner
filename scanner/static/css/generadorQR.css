@@ -14,7 +14,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 70%;
+    width: 90%;
     margin: 5% auto;
     position: relative;
 }
@@ -90,6 +90,8 @@ video {
 }
 
 .controls button:nth-child(3) {
+    display: flex;
+    justify-content: end;
     border: 2px solid #00B541;
 }
 
